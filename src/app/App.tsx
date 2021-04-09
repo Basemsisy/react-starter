@@ -7,13 +7,13 @@ import appRoutes from "./routes";
 function App() {
   return (
     <div className="App">
-      {/* <Header /> */}
+      <Header />
       <Switch>
         {appRoutes.map(route => {
-          return <Route path={route.path} component={route.component} />
+          return <Route key={route.path} path={route.path} component={route.component} />
         })}
       </Switch>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

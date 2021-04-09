@@ -56,6 +56,19 @@ module.exports = function (plop) {
         path: "src/app/pages/{{pascalCase pageName}}/index.js",
         template: "export { default } from './{{pascalCase pageName}}'",
       },
+      {
+        type: "append",
+        pattern: "/*INJECT_ROUTE*/",
+        templateFile: "plop-templates/Page/Route.hbs",
+        path: "src/app/routes.ts",
+      },
+      {
+        type: "append",
+        pattern: "/*IMPORT_PAGE*/",
+        template:
+          'import {{pascalCase pageName}} from "./pages/{{pascalCase pageName}}"; ',
+        path: "src/app/routes.ts",
+      },
     ],
   });
 };
